@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cockroach Army</title>
+  <link rel="icon" type="image/png" href="./favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+  <link rel="shortcut icon" href="./favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Cockroach Army" />
+  <link rel="manifest" href="./site.webmanifest" />
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;900&family=Fraunces:wght@700;900&display=swap" rel="stylesheet">
+  <style>
+        :root { --amber: #f59e0b; --dark: #0a0a0a; --darker: #050505; }
+        body { font-family: 'DM Sans', sans-serif; }
+        .font-display { font-family: 'Fraunces', serif; }
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        .counter-value { font-variant-numeric: tabular-nums; }
+        .hero-overlay { background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.9)); }
+        .mission-card:hover img { transform: scale(1.05); }
+        .mission-card img { transition: transform 0.4s ease; }
+        .nav-open { transform: translateX(0) !important; }
+        @keyframes pulse-amber { 0%,100%{ box-shadow: 0 0 0 0 rgba(245,158,11,0.4); } 70%{ box-shadow: 0 0 0 12px rgba(245,158,11,0); } }
+        .pulse-dot { animation: pulse-amber 2s infinite; }
+    </style>
+ </head>
+ <body class="bg-[#0a0a0a] text-gray-100 w-full">
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0a]/90 backdrop-blur-md border-b border-gray-800/50">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 py-2 flex items-center justify-between">
+    <a href="#hero" class="font-display text-xl sm:text-2xl font-bold text-amber-400 flex items-center gap-3 sm:gap-4">
+     <img src="./logo.png" alt="Logo" class="h-12 sm:h-16 w-auto object-contain scale-110 sm:scale-125 origin-left drop-shadow-xl">
+     Cockroach Army
+    </a>
+    <div class="hidden md:flex gap-8 text-sm">
+     <a href="#about" class="hover:text-amber-400 transition">About</a>
+     <a href="#missions" class="hover:text-amber-400 transition">Missions</a>
+     <a href="#gallery" class="hover:text-amber-400 transition">Gallery</a>
+     <a href="#join" class="hover:text-amber-400 transition">Join</a>
+    </div>
+    <button id="mobile-menu-btn" class="md:hidden text-white" aria-label="Menu">
+     <i data-lucide="menu" style="width:24px;height:24px;"></i>
+    </button>
+   </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="md:hidden fixed inset-0 top-[70px] bg-black -translate-x-full transition-transform z-40 flex flex-col items-center pt-16 gap-8 text-2xl h-screen">
+   <a href="#about" class="mobile-link hover:text-amber-400 font-medium">About</a>
+   <a href="#missions" class="mobile-link hover:text-amber-400 font-medium">Missions</a>
+   <a href="#gallery" class="mobile-link hover:text-amber-400 font-medium">Gallery</a>
+   <a href="#join" class="mobile-link hover:text-amber-400 font-medium">Join</a>
+  </div>
+
+  <!-- Hero -->
+  <header id="hero" class="relative w-full min-h-screen">
+   <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1600&q=80" alt="Hero Background" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+   <div class="hero-overlay absolute inset-0"></div>
+   <div class="relative z-10 flex flex-col items-center justify-center text-center px-4 min-h-screen">
+    <h1 class="font-display text-5xl sm:text-7xl lg:text-8xl font-black tracking-tight">Cockroach <span class="text-amber-400">Army</span></h1>
+    <p class="mt-6 text-lg sm:text-xl max-w-2xl text-gray-300">We are unstoppable. A youth-led movement fighting for environment, cleanliness, health, education, and a corruption-free India.</p>
+    <div class="mt-10 flex gap-4 flex-wrap justify-center">
+     <a href="#join" class="px-8 py-3 bg-amber-500 text-black font-bold rounded-full hover:bg-amber-400 transition">Join the Army</a>
+     <a href="#missions" class="px-8 py-3 border border-amber-500 text-amber-400 font-bold rounded-full hover:bg-amber-500/10 transition">Our Missions</a>
+    </div>
+   </div>
+  </header>
+
+  <main>
+   <!-- About -->
+   <section id="about" class="py-20 px-4">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+     <div class="fade-in">
+      <h2 class="font-display text-4xl font-bold text-amber-400">Who We Are</h2>
+      <p class="mt-6 text-gray-300 leading-relaxed">Cockroach Army is a youth-driven social initiative that believes in the power of collective action. Like cockroaches — resilient, relentless, and impossible to ignore — we tackle the issues that others overlook.</p>
+      <p class="mt-4 text-gray-400 leading-relaxed">From cleaning neglected streets to raising awareness about corruption, from promoting health education to empowering underprivileged communities — we show up, we act, and we never back down.</p>
+     </div>
+     <div class="fade-in rounded-2xl overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=800&q=80" alt="Team working together" class="w-full h-80 object-cover rounded-2xl" loading="lazy">
+     </div>
+    </div>
+   </section>
+
+   <!-- Missions -->
+   <section id="missions" class="py-20 px-4">
+    <div class="max-w-6xl mx-auto">
+     <h2 class="font-display text-4xl font-bold text-center text-amber-400 fade-in">Our Missions</h2>
+     <p class="text-center text-gray-400 mt-4 max-w-2xl mx-auto fade-in">Six pillars that drive everything we do. Each mission is a battle we fight every single day.</p>
+     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+      <!-- Mission 1: Environment -->
+      <div class="mission-card fade-in rounded-2xl overflow-hidden bg-gray-900/50 border border-gray-800">
+       <div class="overflow-hidden h-48">
+        <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80" alt="Environment" class="w-full h-48 object-cover" loading="lazy">
+       </div>
+       <div class="p-5">
+        <h3 class="font-bold text-lg text-amber-300">🌿 Environment Protection</h3>
+        <p class="text-gray-400 text-sm mt-2">Tree plantation drives, plastic-free campaigns, and wildlife conservation efforts across cities and villages.</p>
+       </div>
+      </div>
+      <!-- Mission 2: Corruption Awareness -->
+      <div class="mission-card fade-in rounded-2xl overflow-hidden bg-gray-900/50 border border-gray-800">
+       <div class="overflow-hidden h-48">
+        <img src="https://images.unsplash.com/photo-1589578527966-fdac0f44566c?w=600&q=80" alt="Anti-Corruption" class="w-full h-48 object-cover" loading="lazy">
+       </div>
+       <div class="p-5">
+        <h3 class="font-bold text-lg text-amber-300">⚖️ Anti-Corruption</h3>
+        <p class="text-gray-400 text-sm mt-2">Spreading awareness about citizens' rights, RTI filing assistance, and building transparency in public systems.</p>
+       </div>
+      </div>
+      <!-- Mission 3: Cleanliness -->
+      <div class="mission-card fade-in rounded-2xl overflow-hidden bg-gray-900/50 border border-gray-800">
+       <div class="overflow-hidden h-48">
+        <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=600&q=80" alt="Cleanliness" class="w-full h-48 object-cover" loading="lazy">
+       </div>
+       <div class="p-5">
+        <h3 class="font-bold text-lg text-amber-300">🧹 Cleanliness Drives</h3>
+        <p class="text-gray-400 text-sm mt-2">Regular clean-up drives in public spaces, beaches, rivers, and neighbourhood areas to create cleaner communities.</p>
+       </div>
+      </div>
+      <!-- Mission 4: Health -->
+      <div class="mission-card fade-in rounded-2xl overflow-hidden bg-gray-900/50 border border-gray-800">
+       <div class="overflow-hidden h-48">
+        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&q=80" alt="Health" class="w-full h-48 object-cover" loading="lazy">
+       </div>
+       <div class="p-5">
+        <h3 class="font-bold text-lg text-amber-300">❤️ Health Awareness</h3>
+        <p class="text-gray-400 text-sm mt-2">Free health camps, blood donation drives, mental health awareness sessions, and hygiene education programs.</p>
+       </div>
+      </div>
+      <!-- Mission 5: Education -->
+      <div class="mission-card fade-in rounded-2xl overflow-hidden bg-gray-900/50 border border-gray-800">
+       <div class="overflow-hidden h-48">
+        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=80" alt="Education" class="w-full h-48 object-cover" loading="lazy">
+       </div>
+       <div class="p-5">
+        <h3 class="font-bold text-lg text-amber-300">📚 Education for All</h3>
+        <p class="text-gray-400 text-sm mt-2">Free tutoring for underprivileged children, scholarship guidance, digital literacy workshops, and school supply drives.</p>
+       </div>
+      </div>
+      <!-- Mission 6: Employment -->
+      <div class="mission-card fade-in rounded-2xl overflow-hidden bg-gray-900/50 border border-gray-800">
+       <div class="overflow-hidden h-48">
+        <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=600&q=80" alt="Employment" class="w-full h-48 object-cover" loading="lazy">
+       </div>
+       <div class="p-5">
+        <h3 class="font-bold text-lg text-amber-300">💼 Employment Support</h3>
+        <p class="text-gray-400 text-sm mt-2">Skill development workshops, resume building, interview preparation, and connecting youth with job opportunities.</p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+
+   <!-- Gallery -->
+   <section id="gallery" class="py-20 px-4">
+    <div class="max-w-6xl mx-auto">
+     <h2 class="font-display text-4xl font-bold text-center text-amber-400 fade-in">Gallery</h2>
+     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-12">
+      <div class="fade-in rounded-xl overflow-hidden">
+       <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=600&q=80" alt="Community service" class="w-full h-56 object-cover" loading="lazy">
+      </div>
+      <div class="fade-in rounded-xl overflow-hidden">
+       <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=600&q=80" alt="Volunteer work" class="w-full h-56 object-cover" loading="lazy">
+      </div>
+      <div class="fade-in rounded-xl overflow-hidden">
+       <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&q=80" alt="Tree planting" class="w-full h-56 object-cover" loading="lazy">
+      </div>
+      <div class="fade-in rounded-xl overflow-hidden">
+       <img src="https://images.unsplash.com/photo-1526958097901-5e6d742d3371?w=600&q=80" alt="Clean up drive" class="w-full h-56 object-cover" loading="lazy">
+      </div>
+      <div class="fade-in rounded-xl overflow-hidden">
+       <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?w=600&q=80" alt="Education session" class="w-full h-56 object-cover" loading="lazy">
+      </div>
+      <div class="fade-in rounded-xl overflow-hidden">
+       <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=600&q=80" alt="Team gathering" class="w-full h-56 object-cover" loading="lazy">
+      </div>
+     </div>
+    </div>
+   </section>
+
+   <!-- Local Chapters -->
+   <section id="chapters" class="py-20 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+     <h2 class="font-display text-4xl font-bold text-amber-400 fade-in">Local Chapters</h2>
+     <p class="text-gray-400 mt-4 fade-in">We're growing across India. Find a chapter near you or start your own.</p>
+     <div class="mt-12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 fade-in">
+      <div class="flex items-center gap-2 bg-gray-900/50 border border-gray-800 rounded-lg px-4 py-3">
+       <span class="w-2 h-2 bg-amber-500 rounded-full pulse-dot"></span><span class="text-sm">Mumbai</span>
+      </div>
+      <div class="flex items-center gap-2 bg-gray-900/50 border border-gray-800 rounded-lg px-4 py-3">
+       <span class="w-2 h-2 bg-amber-500 rounded-full pulse-dot"></span><span class="text-sm">Pune</span>
+      </div>
+      <div class="flex items-center gap-2 bg-gray-900/50 border border-gray-800 rounded-lg px-4 py-3">
+       <span class="w-2 h-2 bg-amber-500 rounded-full pulse-dot"></span><span class="text-sm">Delhi</span>
+      </div>
+      <div class="flex items-center gap-2 bg-gray-900/50 border border-gray-800 rounded-lg px-4 py-3">
+       <span class="w-2 h-2 bg-amber-500 rounded-full pulse-dot"></span><span class="text-sm">Bangalore</span>
+      </div>
+      <div class="flex items-center gap-2 bg-gray-900/50 border border-gray-800 rounded-lg px-4 py-3">
+       <span class="w-2 h-2 bg-yellow-500 rounded-full"></span><span class="text-sm">Hyderabad</span>
+      </div>
+      <div class="flex items-center gap-2 bg-gray-900/50 border border-gray-800 rounded-lg px-4 py-3">
+       <span class="w-2 h-2 bg-yellow-500 rounded-full"></span><span class="text-sm">Chennai</span>
+      </div>
+      <div class="flex items-center gap-2 bg-gray-900/50 border border-gray-800 rounded-lg px-4 py-3">
+       <span class="w-2 h-2 bg-yellow-500 rounded-full"></span><span class="text-sm">Kolkata</span>
+      </div>
+      <div class="flex items-center gap-2 bg-gray-900/50 border border-gray-800 rounded-lg px-4 py-3">
+       <span class="w-2 h-2 bg-yellow-500 rounded-full"></span><span class="text-sm">Nagpur</span>
+      </div>
+     </div>
+     <p class="text-xs text-gray-500 mt-4"><span class="inline-block w-2 h-2 bg-amber-500 rounded-full mr-1"></span>Active <span class="inline-block w-2 h-2 bg-yellow-500 rounded-full ml-3 mr-1"></span>Forming</p>
+    </div>
+   </section>
+
+   <section id="join" class="py-20 px-4">
+    <div class="max-w-7xl mx-auto">
+     <h2 class="font-display text-4xl font-bold text-center text-amber-400 fade-in mb-4">Join the Army</h2>
+     <p class="text-center text-gray-400 fade-in max-w-2xl mx-auto">Become a volunteer and make a real difference in your community.</p>
+
+     <div class="grid lg:grid-cols-2 gap-10 mt-14 items-start">
+
+      <!-- Left Side: Content -->
+      <div class="fade-in space-y-8">
+       <div>
+        <h3 class="font-display text-2xl font-bold text-white mb-3">Why Join <span class="text-amber-400">Cockroach Army</span>?</h3>
+        <p class="text-gray-400 leading-relaxed">We are a movement of fearless youth who refuse to stay silent. When you join us, you become part of something bigger than yourself — a community that fights for change on the ground.</p>
+       </div>
+
+       <div class="space-y-5">
+        <div class="flex items-start gap-4">
+         <div class="w-10 h-10 flex-shrink-0 bg-amber-500/10 border border-amber-500/30 rounded-lg flex items-center justify-center mt-1">
+          <i data-lucide="users" style="width:20px;height:20px;" class="text-amber-400"></i>
+         </div>
+         <div>
+          <h4 class="font-bold text-white">Be Part of a Community</h4>
+          <p class="text-gray-400 text-sm mt-1">Connect with 250+ passionate volunteers across 12 cities who share your vision for a better India.</p>
+         </div>
+        </div>
+
+        <div class="flex items-start gap-4">
+         <div class="w-10 h-10 flex-shrink-0 bg-amber-500/10 border border-amber-500/30 rounded-lg flex items-center justify-center mt-1">
+          <i data-lucide="trophy" style="width:20px;height:20px;" class="text-amber-400"></i>
+         </div>
+         <div>
+          <h4 class="font-bold text-white">Gain Real Experience</h4>
+          <p class="text-gray-400 text-sm mt-1">Develop leadership, event management, and teamwork skills through hands-on missions and campaigns.</p>
+         </div>
+        </div>
+
+        <div class="flex items-start gap-4">
+         <div class="w-10 h-10 flex-shrink-0 bg-amber-500/10 border border-amber-500/30 rounded-lg flex items-center justify-center mt-1">
+          <i data-lucide="heart" style="width:20px;height:20px;" class="text-amber-400"></i>
+         </div>
+         <div>
+          <h4 class="font-bold text-white">Make a Real Impact</h4>
+          <p class="text-gray-400 text-sm mt-1">Every action counts. From clean-up drives to education sessions — your efforts directly transform communities.</p>
+         </div>
+        </div>
+
+        <div class="flex items-start gap-4">
+         <div class="w-10 h-10 flex-shrink-0 bg-amber-500/10 border border-amber-500/30 rounded-lg flex items-center justify-center mt-1">
+          <i data-lucide="award" style="width:20px;height:20px;" class="text-amber-400"></i>
+         </div>
+         <div>
+          <h4 class="font-bold text-white">Get Recognized</h4>
+          <p class="text-gray-400 text-sm mt-1">Receive certificates, appreciation, and recognition for your contributions towards building a better society.</p>
+         </div>
+        </div>
+       </div>
+
+       <div class="bg-gray-900/50 border border-gray-800 rounded-xl p-5">
+        <p class="text-amber-400 font-bold text-sm mb-1">💬 No experience needed</p>
+        <p class="text-gray-400 text-sm">Whether you're a student, a working professional, or just someone who cares — there's a place for you in the Cockroach Army. Just bring your passion!</p>
+       </div>
+      </div>
+
+      <!-- Right Side: Google Form -->
+      <div class="fade-in flex justify-center">
+       <div class="w-full bg-white rounded-2xl overflow-hidden shadow-lg shadow-amber-500/5 border border-gray-800" style="max-width: 640px;">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScXJArg7u0HYTSQlKrkASTrZJaNeL6UEVZRbVHrJM695UEM2w/viewform?embedded=true" width="100%" height="900" frameborder="0" marginheight="0" marginwidth="0" style="display: block;" allow="storage-access" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox">Loading…</iframe>
+       </div>
+      </div>
+
+     </div>
+    </div>
+   </section>
+
+   <!-- Social & Contact -->
+   <section id="contact" class="py-20 px-4 border-t border-gray-800">
+    <div class="max-w-4xl mx-auto text-center">
+     <h2 class="font-display text-3xl font-bold text-amber-400">Connect With Us</h2>
+     <p class="text-gray-400 mt-4">cockroacharmy@gmail.com</p>
+     <div class="flex justify-center gap-6 mt-8">
+      <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-amber-400 transition"><i data-lucide="instagram" style="width:28px;height:28px;"></i></a>
+      <a href="https://t.me" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-amber-400 transition"><i data-lucide="send" style="width:28px;height:28px;"></i></a>
+      <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-amber-400 transition">
+       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" style="width:28px;height:28px; padding: 4px;">
+        <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L273.3 181.6 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/>
+       </svg>
+      </a>
+     </div>
+    </div>
+   </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="py-8 px-4 border-t border-gray-800 text-center">
+   <p class="text-gray-500 text-sm">© 2026 Cockroach Army. All rights reserved. Built with purpose.</p>
+  </footer>
+
+  <script>
+        // Mobile menu
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('nav-open'));
+        document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => mobileMenu.classList.remove('nav-open')));
+
+        // Scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Counter animation
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    const el = e.target;
+                    const target = parseInt(el.dataset.target);
+                    let current = 0;
+                    const step = Math.max(1, Math.floor(target / 40));
+                    const interval = setInterval(() => {
+                        current += step;
+                        if (current >= target) { current = target; clearInterval(interval); }
+                        el.textContent = current + '+';
+                    }, 30);
+                    counterObserver.unobserve(el);
+                }
+            });
+        }, { threshold: 0.5 });
+        document.querySelectorAll('.counter-value').forEach(el => counterObserver.observe(el));
+
+
+
+
+        lucide.createIcons();
+    </script>
+ </body>
+</html>
